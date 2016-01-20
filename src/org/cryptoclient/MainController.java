@@ -68,11 +68,10 @@ public class MainController implements MainViewController, OptionsViewController
         } else {
             String[] msgData = msg.split(":");
             String name = msgData[0];
-            StringBuilder message = new StringBuilder();
-            for (int i = 1; i < msgData.length; i++) {
-                message.append(msgData[i]);
-            }
-            mainView.getChatView().println(name + ":" + cryptModule.encrypt(message.toString()));
+            String message = msgData[1];
+            System.out.println("name = " + name);
+            System.out.println("message = " + message);
+            mainView.getChatView().println(name + ":" + cryptModule.decrypt(message));
         }
     }
 
